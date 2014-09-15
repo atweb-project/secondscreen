@@ -82,7 +82,35 @@ jQuery(document).ready(function ($) {
       // }
       // Handle incoming message.
   };
-
+  
+  new MediaElement('player', {
+	    success: function(mediaElement, domObject) {
+	        // add HTML5 events to the YouTube API media object
+	    	mediaElement.addEventListener('play', function() {
+	            console.log('yeah, it is playing!');
+	            document.getElementById('events').innerHTML = 'play';
+	            var msg = JSON.stringify({ type: 'video_request', data: $('#events').html() });
+	            connection.send(msg);
+	            
+	        }, false);
+	    	mediaElement.addEventListener('pause', function() {
+	            console.log('yeah, it has been paused!');
+	            document.getElementById('events').innerHTML = 'paused';
+	            var msg = JSON.stringify({ type: 'video_request', data: $('#events').html() });
+	            connection.send(msg);
+	            
+	        }, false);
+	    	
+	    	 mediaElement.addEventListener('timeupdate', function(e) {
+	             
+	          //   document.getElementById('current-time').innerHTML = mediaElement.currentTime;
+	              
+	         }, false);
+	    	 
+	    	
+	    }
+  
+	    });
 
   // Process scroll requests and send them to the server.
   $('.scroll').bind('click', function (e) {
@@ -90,7 +118,7 @@ jQuery(document).ready(function ($) {
     e.preventDefault();
 
     // Send the mssage to the server.
-    var msg = JSON.stringify({ type: 'scroll_request', data: $(this).prop('id') });
+    var msg = JSON.stringify({ type: 'video_request', data: $(this).prop('id') });
     connection.send(msg);
   });
 

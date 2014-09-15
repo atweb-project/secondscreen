@@ -128,9 +128,9 @@ wsServer.on('request', function (request) {
         }
 
         // A scroll request has been received.
-        if (received.type === 'scroll_request') {
+        if (received.type === 'video_request') {
 
-          console.log((new Date()) + ' Scroll request received:' + clients[request.index].uniqueID);
+          console.log((new Date()) + ' Video request received:' + clients[request.index].uniqueID);
 
           // Search for a desktop connection where the unique ID
           // matches the mobile device's unique ID.
@@ -139,7 +139,7 @@ wsServer.on('request', function (request) {
             if (clients[i].uniqueID === clients[request.index].uniqueID && clients[i].type === 'desktop') {
 
               // Send the message to the client.
-              send = JSON.stringify({ type: 'scroll_request', data: received.data });
+              send = JSON.stringify({ type: 'video_request', data: received.data });
               clients[i].connection.send(send);
             }
           }

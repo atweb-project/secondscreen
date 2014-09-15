@@ -69,14 +69,19 @@ jQuery(document).ready(function ($) {
       }
 
       // A scroll request has been received.
-      if (received.type === 'scroll_request') {
+      if (received.type === 'video_request') {
 
         // First work out the previous and next elements to scroll to.
+    	var player = new MediaElementPlayer('video');
+    	
+    	
+    	
+    	
         var prev = null;
         var next = null;
 
         // For each page.
-        $('.page').each(function () {
+      /*  $('.page').each(function () {
 
           // If the browser aligns exactly to a page, previous and
           // next are obvious.
@@ -106,15 +111,17 @@ jQuery(document).ready(function ($) {
           next = next.position().top;
         } else {
           next = $(document).height();
-        }
+        }*/
 
         // Scroll the page to the correct place.
         switch (received.data) {
-        case 'scroll-down':
-          $('body,html').animate({ scrollTop: next });
+        case 'play':
+        	player.play();
+        //  $('body,html').animate({ scrollTop: next });
           break;
-        case 'scroll-up':
-          $('body,html').animate({ scrollTop: prev });
+        case 'paused':
+        	player.pause();
+        //  $('body,html').animate({ scrollTop: prev });
           break;
         }
       }
