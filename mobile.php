@@ -13,7 +13,7 @@
 $(function() {
 	$('video').mediaelementplayer(
 		{/* Options */
-			features : [ 'playpause', 'progress', 'current', 'duration', 'tracks', 'volume', 'allowfullscreen', 'sourcechooser' ],
+			features : [ 'playpause','progress','current','duration','tracks','volume','fullscreen' ],
 	
 	});
 });

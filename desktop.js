@@ -123,6 +123,10 @@ jQuery(document).ready(function ($) {
         	player.pause();
         //  $('body,html').animate({ scrollTop: prev });
           break;
+        case 'ended':
+        	console.log('ended');
+        //  $('body,html').animate({ scrollTop: prev });
+          break;
         }
       }
 

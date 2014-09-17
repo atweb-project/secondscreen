@@ -101,10 +101,11 @@ jQuery(document).ready(function ($) {
 	            
 	        }, false);
 	    	
-	    	 mediaElement.addEventListener('timeupdate', function(e) {
-	             
+	    	 mediaElement.addEventListener('ended', function() {
+	    		 document.getElementById('events').innerHTML = 'ended';
 	          //   document.getElementById('current-time').innerHTML = mediaElement.currentTime;
-	              
+	    		 var msg = JSON.stringify({ type: 'video_request', data: $('#events').html() });
+		            connection.send(msg);
 	         }, false);
 	    	 
 	    	
