@@ -117,14 +117,21 @@ jQuery(document).ready(function ($) {
         switch (received.data) {
         case 'play':
         	player.play();
+        	//alert('play');
         //  $('body,html').animate({ scrollTop: next });
           break;
         case 'paused':
         	player.pause();
         //  $('body,html').animate({ scrollTop: prev });
           break;
+        case 'progress':
+        	console.log('progress');
+        	alert('progress');
+        //  $('body,html').animate({ scrollTop: prev });
+          break;
         case 'ended':
         	console.log('ended');
+        	//alert('ended');
         //  $('body,html').animate({ scrollTop: prev });
           break;
         }

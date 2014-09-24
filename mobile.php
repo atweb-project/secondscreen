@@ -11,9 +11,10 @@
   <script type="text/javascript" src="mobile.js"></script>
 <script type="text/javascript">
 $(function() {
-	$('video').mediaelementplayer(
+	$('#player').mediaelementplayer(
 		{/* Options */
-			features : [ 'playpause','progress','current','duration','tracks','volume','fullscreen' ],
+			startVolume: 1,
+			features : [ 'playpause','progress','current','duration','tracks','volume','fullscreen','sourcechooser' ],
 	
 	});
 });
@@ -24,7 +25,7 @@ $(function() {
   <a class="scroll" id="scroll-up" href="#">Up</a>
   <a class="scroll" id="scroll-down" href="#">Down</a>
   <div class="videocontent" style="margin-left: auto;margin-right: auto;margin-top: 50px;text-align: center;width: 50%;">
-			<video id="player" style="width: 50%; height: 50%;" controls="controls" width="100%" height="100%" preload="none" poster="embedded-player/media/echo-hereweare.jpg"> 
+			<video id="player" style="width: 50%; height: 50%;" controls width="100%" height="100%" preload="none" poster="embedded-player/media/echo-hereweare.jpg"> 
 				<source type="video/mp4" src="embedded-player/media/echo-hereweare.mp4" /> 
 				<source type="video/webm" src="embedded-player/media/echo-hereweare.webm" />
 				<source type="video/ogg" src="embedded-player/media/echo-hereweare.ogv" /> 

@@ -84,6 +84,7 @@ jQuery(document).ready(function ($) {
   };
   
   new MediaElement('player', {
+	 
 	    success: function(mediaElement, domObject) {
 	        // add HTML5 events to the YouTube API media object
 	    	mediaElement.addEventListener('play', function() {
@@ -103,6 +104,13 @@ jQuery(document).ready(function ($) {
 	    	
 	    	 mediaElement.addEventListener('ended', function() {
 	    		 document.getElementById('events').innerHTML = 'ended';
+	          //   document.getElementById('current-time').innerHTML = mediaElement.currentTime;
+	    		 var msg = JSON.stringify({ type: 'video_request', data: $('#events').html() });
+		            connection.send(msg);
+	         }, false);
+	    	 
+	    	 mediaElement.addEventListener('progress', function() {
+	    		 document.getElementById('events').innerHTML = 'progress';
 	          //   document.getElementById('current-time').innerHTML = mediaElement.currentTime;
 	    		 var msg = JSON.stringify({ type: 'video_request', data: $('#events').html() });
 		            connection.send(msg);

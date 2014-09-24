@@ -13,6 +13,7 @@
 $(function() {
 	$('video').mediaelementplayer(
 		{/* Options */
+			AndroidUseNativeControls: true,
 			features : [ 'playpause','progress','current','duration','tracks','volume','fullscreen' ],
 	
 	});
