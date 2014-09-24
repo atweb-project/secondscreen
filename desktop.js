@@ -72,7 +72,7 @@ jQuery(document).ready(function ($) {
       if (received.type === 'video_request') {
 
         // First work out the previous and next elements to scroll to.
-    	var player = new MediaElementPlayer('video');
+    	var player = new MediaElementPlayer('video', {timerRate: 10});
     	
     	
     	
@@ -135,6 +135,15 @@ jQuery(document).ready(function ($) {
         //  $('body,html').animate({ scrollTop: prev });
           break;
         }
+        
+        if(!isNaN(parseInt(received.data)))
+        {
+        	//console.log(received.data);
+        	player.setCurrentTime(received.data);
+        	//player.setCurrentRail(received.data);
+        }
+        
+        console.log(received.data)
       }
 
 

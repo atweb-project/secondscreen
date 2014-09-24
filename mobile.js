@@ -84,6 +84,7 @@ jQuery(document).ready(function ($) {
   };
   
   new MediaElement('player', {
+	  	timerRate: 10,
 	 
 	    success: function(mediaElement, domObject) {
 	        // add HTML5 events to the YouTube API media object
@@ -106,15 +107,22 @@ jQuery(document).ready(function ($) {
 	    		 document.getElementById('events').innerHTML = 'ended';
 	          //   document.getElementById('current-time').innerHTML = mediaElement.currentTime;
 	    		 var msg = JSON.stringify({ type: 'video_request', data: $('#events').html() });
-		            connection.send(msg);
+		         connection.send(msg);
 	         }, false);
-	    	 
-	    	 mediaElement.addEventListener('progress', function() {
-	    		 document.getElementById('events').innerHTML = 'progress';
+	    	 	    	 
+	    	 	    	 
+	    	// mediaElement.addEventListener('seeked', function() {
+	    	//	 document.getElementById('events').innerHTML = 'seeked';
+	    		 //if($('#events').html()=='seeked')
 	          //   document.getElementById('current-time').innerHTML = mediaElement.currentTime;
-	    		 var msg = JSON.stringify({ type: 'video_request', data: $('#events').html() });
-		            connection.send(msg);
-	         }, false);
+	    	 mediaElement.addEventListener('seeking', function(e) {
+	    	    console.log('get the time');
+	    	    document.getElementById('current-time').innerHTML = mediaElement.currentTime;
+	    	    var msg = JSON.stringify({ type: 'video_request', data: $('#current-time').html() });
+	    		connection.send(msg);
+	    	              
+	    	         }, false);
+	       //  }, false);
 	    	 
 	    	
 	    }
