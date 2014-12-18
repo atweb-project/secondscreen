@@ -8,48 +8,27 @@
   <link rel="stylesheet" type="text/css" href="embedded-player/mediaelementplayer.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="embedded-player/mediaelement-and-player.min.js" type="text/javascript"></script>
-  <script type="text/javascript" src="mobile.js"></script>
-<script type="text/javascript">
-$(function() {
-	$('video').mediaelementplayer(
-		{/* Options */
-			timerRate: 10,
-			features : [ 'playpause','progress','current','duration','tracks','volume','fullscreen' ]
-	
-	});
-
-	$('<div class="mejs-button mejs-volume-button mejs-mute">'+
-			  '<button aria-label="Mute Toggle" title="Mute Toggle" aria-controls="mep_0" type="button"></button>'+
-			  '<div class="mejs-volume-slider" style="display: none;">'+
-			  '<div class="mejs-volume-total"></div>'+
-			  '<div class="mejs-volume-current" style="height: 80px; top: 28px;"></div>'+
-			  '<div class="mejs-volume-handle" style="top: 25px;"></div></div></div>').insertAfter('.mejs-time');
-	  $('.mejs-volume-button').on({mouseenter: function(){
-				$('.mejs-volume-slider').css('display','block');
-	  			},mouseleave: function(){
-					$('.mejs-volume-slider').css('display','none');}
-	  });
-});
-</script>
+  <script type="text/javascript" src="mobile/mobile.js"></script>
+  <script type="text/javascript" src="mobile/videocall.js"></script>
 </head>
-
 <body id="mobile">
- <!-- <a class="scroll" id="scroll-up" href="#">Up</a>
-  <a class="scroll" id="scroll-down" href="#">Down</a>-->
-  <div class="videocontent" style="margin-left: auto;margin-right: auto;margin-top: 50px;text-align: center;width: 50%;">
-			<video id="player" style="" controls="controls" width="640" height="360" preload="none" poster="embedded-player/media/echo-hereweare.jpg"> 
-				<source type="video/mp4" src="embedded-player/media/echo-hereweare.mp4" /> 
-				<source type="video/webm" src="embedded-player/media/echo-hereweare.webm" />
-				<source type="video/ogg" src="embedded-player/media/echo-hereweare.ogv" /> 
-				<object width="640" height="360" type="application/x-shockwave-flash" data="embedded-player/flashmediaelement.swf">
-				<param name="movie" value="flashmediaelement.swf" />
-				<param name="flashvars" value="controls=true&amp;file=embedded-player/media/echo-hereweare.mp4" />
-				<!-- Image fall back for non-HTML5 browser with JavaScript turned off and no Flash player installed -->
-				<img src="embedded-player/media/echo-hereweare.jpg" width="640" height="360" alt="Here we are" title="No video playback capabilities" />
-				</object> 
-			</video>
-	</div>
-	<span id="events" style="display: none;"></span>
-	<span id="current-time" style="display: none;"></span>
+<div class="videocontent" style="margin-left: auto;margin-right: auto;margin-top: 50px;text-align: center;width: 50%;">
+    <video id="player" style="" controls="controls" width="640" height="360" preload="none"
+           poster="embedded-player/media/echo-hereweare.jpg">
+        <source type="video/mp4" src="embedded-player/media/echo-hereweare.mp4"/>
+        <source type="video/webm" src="embedded-player/media/echo-hereweare.webm"/>
+        <source type="video/ogg" src="embedded-player/media/echo-hereweare.ogv"/>
+        <object width="640" height="360" type="application/x-shockwave-flash"
+                data="embedded-player/flashmediaelement.swf">
+            <param name="movie" value="flashmediaelement.swf"/>
+            <param name="flashvars" value="controls=true&amp;file=embedded-player/media/echo-hereweare.mp4"/>
+            <!-- Image fall back for non-HTML5 browser with JavaScript turned off and no Flash player installed -->
+            <img src="embedded-player/media/echo-hereweare.jpg" width="640" height="360" alt="Here we are"
+                 title="No video playback capabilities"/>
+        </object>
+    </video>
+</div>
+<span id="events" style="display: none;"></span>
+<span id="current-time" style="display: none;"></span>
 </body>
 </html>
